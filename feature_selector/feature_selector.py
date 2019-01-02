@@ -514,10 +514,10 @@ class FeatureSelector():
         if self.record_missing is None:
             raise NotImplementedError("Missing values have not been calculated. Run `identify_missing`")
         
-        self.reset_plot()
+        # self.reset_plot()
         
         # Histogram of missing values
-        plt.style.use('seaborn-white')
+        # plt.style.use('seaborn-white')
         plt.figure(figsize = (7, 5))
         plt.hist(self.missing_stats['missing_fraction'], bins = np.linspace(0, 1, 11), edgecolor = 'k', color = 'red', linewidth = 1.5)
         plt.xticks(np.linspace(0, 1, 11));
@@ -530,7 +530,7 @@ class FeatureSelector():
         if self.record_single_unique is None:
             raise NotImplementedError('Unique values have not been calculated. Run `identify_single_unique`')
         
-        self.reset_plot()
+        # self.reset_plot()
 
         # Histogram of number of unique values
         self.unique_stats.plot.hist(edgecolor = 'k', figsize = (7, 5))
@@ -610,7 +610,7 @@ class FeatureSelector():
         if plot_n > self.feature_importances.shape[0]:
             plot_n = self.feature_importances.shape[0] - 1
 
-        self.reset_plot()
+        # self.reset_plot()
         
         # Make a horizontal bar chart of feature importances
         plt.figure(figsize = (10, 6))
@@ -646,5 +646,5 @@ class FeatureSelector():
 
             print('%d features required for %0.2f of cumulative importance' % (importance_index + 1, threshold))
 
-    def reset_plot(self):
-        plt.rcParams = plt.rcParamsDefault
+    # def reset_plot(self):
+    #     plt.rcParams = plt.rcParamsDefault
